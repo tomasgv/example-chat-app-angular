@@ -13,16 +13,27 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   username: string = '';
+  loading: boolean = false;
+  error: string = '';
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  onLogin(): void {
+  async onLogin(): Promise<void> {
     if (this.username.trim()) {
-      this.authService.login(this.username.trim());
-      this.router.navigate(['/chat']);
+      this.loading = true;
+      this.error = '';
+      try {
+        await this.authService.login(this.username.trim());
+        this.router.navigate(['/chat']);
+      } catch (error) {
+        this.error = 'Failed to login. Please try again.';
+        console.error('Login error:', error);
+      } finally {
+        this.loading = false;
+      }
     }
   }
 }
