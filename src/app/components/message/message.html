@@ -1,0 +1,15 @@
+<div [class.justify-end]="isOwnMessage" class="flex mb-4">
+  <div [class.bg-blue-600]="isOwnMessage" 
+       [class.bg-gray-200]="!isOwnMessage"
+       [class.text-white]="isOwnMessage"
+       [class.text-gray-800]="!isOwnMessage"
+       class="max-w-xs lg:max-w-md px-4 py-2 rounded-2xl shadow">
+    <div class="flex items-center mb-1">
+      <span class="font-semibold text-sm">{{ message.username }}</span>
+      <span [class.text-blue-200]="isOwnMessage"
+            [class.text-gray-500]="!isOwnMessage" 
+            class="text-xs ml-2">{{ formattedTime }}</span>
+    </div>
+    <p class="break-words">{{ message.text }}</p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="h-full bg-gray-800 text-white p-4">
+  <h2 class="text-xl font-bold mb-4 flex items-center">
+    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+    </svg>
+    Chat Rooms
+  </h2>
+  
+  <div class="space-y-2">
+    <div
+      *ngFor="let room of rooms"
+      (click)="selectRoom(room)"
+      [class.bg-blue-600]="currentRoom?.id === room.id"
+      [class.bg-gray-700]="currentRoom?.id !== room.id"
+      class="p-3 rounded-lg cursor-pointer hover:bg-blue-500 transition duration-200"
+    >
+      <div class="font-semibold"># {{ room.name }}</div>
+      <div class="text-sm text-gray-300">{{ room.description }}</div>
+    </div>
+  </div>
+</div>
