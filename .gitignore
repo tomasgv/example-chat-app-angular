@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+.angular/
 
 # Node
 /node_modules
@@ -41,3 +42,14 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files
+/src/environments/environment.ts
+/src/environments/environment.development.ts
+
+# Firebase
+.firebase/
+.firebaserc
+
+# IDE
+.vscode/
