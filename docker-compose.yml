@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # Production-like build with Nginx
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    container_name: angular-chat-app
+    restart: unless-stopped
+
+  # Development server with hot-reload
+  angular-dev:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "4200:4200"
+    command: sh -c "npm install && npm start"
+    container_name: angular-chat-app-dev
+    environment:
+      - NODE_ENV=development
+      - NG_CLI_ANALYTICS=false
+      - CHOKIDAR_USEPOLLING=1
+      - WATCHPACK_POLLING=true
+
+volumes:
+  node_modules:

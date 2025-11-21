@@ -1,0 +1,13 @@
+# dependencies
+node_modules
+
+# build output
+dist
+
+# misc
+.git
+.gitignore
+.vscode
+firebase-debug.log
+npm-debug.log
+.DS_Store
