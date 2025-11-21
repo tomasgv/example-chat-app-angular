@@ -1,16 +1,42 @@
 # AngularChatApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) and uses Angular 18.
 
 ## Development server
+
+### Using Node.js
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm install
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+### Using Docker
+
+To run the development server with Docker:
+
+```bash
+docker compose up angular-dev
+```
+
+To run the production build with Docker:
+
+```bash
+docker compose up angular-app
+```
+
+Or build and run directly:
+
+```bash
+npm run docker:build
+npm run docker:run
+```
+
+The production Docker container runs on port 8080 by default (`http://localhost:8080`). See `DOCKER_README.md` for more detailed container instructions.
 
 ## Code scaffolding
 
